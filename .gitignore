@@ -1,0 +1,13 @@
+  .config/polybar/blocks/
+  .config/polybar/colorblocks/
+  .config/polybar/cuts/
+  .config/polybar/docky/
+  .config/polybar/forest/
+  .config/polybar/grayblocks/
+  .config/polybar/hack/
+  .config/polybar/material/
+  .config/polybar/panels/
+  .config/polybar/pwidgets/
+  .config/polybar/shades/
+  .config/polybar/shapes/
+  *.bak
