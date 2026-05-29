@@ -1,0 +1,147 @@
+;; ┌────────────────────────────────────────────────────────────────┐
+;; │░█▀█░█▀█░█░░░█░█░█▀▄░█▀█░█▀▄░░░░░░░░░█▄█░█▀█░█▀▄░█░█░█░░░█▀▀░█▀▀│
+;; │░█▀▀░█░█░█░░░░█░░█▀▄░█▀█░█▀▄░░░░▀░░░░█░█░█░█░█░█░█░█░█░░░█▀▀░▀▀█│
+;; │░▀░░░▀▀▀░▀▀▀░░▀░░▀▀░░▀░▀░▀░▀░░░░▀░░░░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀│
+;; │░Created░By░Aditya░Shakya░@adi1090x░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+;; └────────────────────────────────────────────────────────────────┘
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/volume]
+type = internal/pulseaudio
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = false
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+format-volume-background = ${color.background}
+format-volume-padding = 1
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-muted = <label-muted>
+format-muted-prefix = 
+format-muted-background = ${color.background}
+format-muted-padding = 1
+
+; Available tokens:
+;   %percentage% (default)
+label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default
+label-muted = " Muted"
+label-muted-foreground = ${color.foreground}
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-foreground = ${color.blue}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+interval = 1.0
+
+; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %A, %d %B
+
+; Optional time format
+time = at %I:%M %p
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = It's %A, %d %B %Y
+time-alt = at %k:%M:%S
+
+; Available tags:
+;   <label> (default)
+format = <label>
+format-prefix = " "
+format-prefix-foreground = ${color.red}
+
+; Available tokens:
+;   %date%
+;   %time%
+; Default: %date%
+label = %date% %time%
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/workspaces]
+type = internal/xworkspaces
+
+; Only show workspaces defined on the same output as the bar
+pin-workspaces = true
+
+; Create click handler used to focus desktop
+enable-click = true
+
+; Create scroll handlers used to cycle desktops
+enable-scroll = true
+
+; icon-[0-9]+ = <desktop-name>;<icon>
+icon-0 = 1;
+icon-1 = 2;
+icon-2 = 3;
+icon-3 = 4;
+icon-4 = 5;
+icon-default = 
+
+; Available tags:
+;   <label-monitor>
+;   <label-state>
+format = <label-state>
+
+; Available tokens:
+;   %name%
+label-monitor = %name%
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+label-active = %icon%
+label-active-foreground = ${color.pink}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+label-occupied = %icon%
+label-occupied-foreground = ${color.cyan}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+label-urgent = %icon%
+label-urgent-foreground = ${color.red}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+label-empty = %icon%
+label-empty-foreground = ${color.foreground}
+
+label-active-padding = 1
+label-urgent-padding = 1
+label-occupied-padding = 1
+label-empty-padding = 1
